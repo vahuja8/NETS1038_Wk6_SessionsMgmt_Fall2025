@@ -38,7 +38,11 @@ public class SecondServlet extends HttpServlet {
 
 			HttpSession session = request.getSession(true);
 			
+			session.invalidate();  // this will invalidate the session.
+			
 			String n = (String) session.getAttribute("userName");
+			//session.setMaxInactiveInterval(50);// specify the max inactive time so that session invalidates.
+			//session.invalidate();  // this will invalidate the session.
 	
 			out.close();
 

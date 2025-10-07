@@ -49,8 +49,14 @@ public class FirstServlet extends HttpServlet {
 	 */
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("userName", n);
-				
+			
+			
+		    session.setMaxInactiveInterval(1);// specify the max inactive time so that session invalidates.
+		//	session.invalidate();  // this will invalidate the session.
+	
+			session.setAttribute("userName", n);	
+			//add the attribute to the session object to be acccessed/passed
+			//with session object. 
 
 			out.print("<a href='SecondServlet'>visit</a>");
 
